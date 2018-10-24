@@ -3,7 +3,8 @@ package ar.edu.undav.mappingdomain.domain;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name="tpc_footballer")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Footballer extends Player {
 
     private String club;

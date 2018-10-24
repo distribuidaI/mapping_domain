@@ -3,9 +3,9 @@ package ar.edu.undav.mappingdomain.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "si_player")
-@DiscriminatorColumn(name = "type",  discriminatorType = DiscriminatorType.STRING)
-public class Player {
+@Table(name = "tpc_player")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Player {
 
     @Id //porque es PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) //es porque tiene que ser auto-increment o sequence
