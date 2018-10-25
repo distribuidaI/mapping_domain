@@ -3,12 +3,13 @@ package ar.edu.undav.mappingdomain.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "si_player")
-@DiscriminatorColumn(name = "type",  discriminatorType = DiscriminatorType.STRING)
-public class Player {
+@Table(name = "concrete_player")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Player {
 
     @Id //porque es PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //es porque tiene que ser auto-increment o sequence
+    @TableGenerator(table = "sequences", name = "seq_generator", schema="mapping_domain", allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "seq_generator")
     protected Long id;
 
     protected String name;

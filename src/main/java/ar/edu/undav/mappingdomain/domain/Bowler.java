@@ -1,12 +1,9 @@
 package ar.edu.undav.mappingdomain.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "concrete_bowler")
 public class Bowler extends Cricketer{
 
     @Column(name = "bowling_avg")
